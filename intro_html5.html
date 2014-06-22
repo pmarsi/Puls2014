@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<!--charset indica como esta codificado el documento-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Introducción a html5</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<!--estructura semantica de la web-->
+<!--ya no hace falta hacer float ya que en css esta el inline block-->
+<!--estos tags semanticos permiten ahorrarse el uso de divs para crear la estructura-->
+	<header>
+		<!--todos los html deben de tener una unica etiqueta h1-->
+		<!--es la etiqueta para colocar cualquier etiqueta-->
+		<h1>Mejorando.la web en vivo</h1>
+	</header>
+	<!--section es la etiqueta para dividir secciones semanticas de contenido-->
+	<section>
+		<!--article es una etiqueta especial en la cual se coloca el ultimo elemento, despues ya no hay mas etiquetas semanticas por dentro, pero si se puede meter un section dentro de un section-->
+		<article>
+			<!--etiqueta video-->
+			<!--esta caja del contenido de video puede ser manipulada mas facilmente-->
+			<video id="video1" width="640" height="320" autobuffer autoloop loop controls>
+				<source src="video.mp4" type="video/mp4; codecs='avc1,mp4a'">
+				<source src="video.webm" type="video/webm; codecs='vp8,vorbis'">
+			</video>
+		</article>
+		<!--html solo debe ser semantica, aside es para todo aquello que va en el sitio web pero que no hacen parte del objetivo principal del sitio web-->
+		<aside>(BOTONES SOCIALES)</aside>
+		<article>CHAT</article>
+	</section>
+	<footer>
+		Con @pmarsi y mejorando.la
+	</footer>
+</body>
+</html>
