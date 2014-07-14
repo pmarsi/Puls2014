@@ -41,7 +41,7 @@
 	color: #FFBE2C;
 	margin-right: 0.4em;
 	position: relative;
-	top:0.1em;
+	top: 0.1em;
 }
 .icon-f-arriba:before {
 	content: "\e600";
@@ -124,13 +124,27 @@ header #avatar img
 	margin-right: 0.5em;
 
 }
+header #logo
+{
+	/*-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);*/
+	border-right: 1px solid white;
+	margin-right: 0.5em;
+
+}
 header #logo img
 {
-	border-right: 1px solid white;
+	
 	padding-right: 0.5em;
 	margin-right: 0.5em;
 	width: 52px;
+	-webkit-transition:0.7s;
 
+}
+header #logo img:hover
+{
+	-webkit-transform:rotate(360deg);
+	-moz-transform:rotate(360deg);
 }
 nav
 {
@@ -159,6 +173,14 @@ nav ul #publicar_nav a
 	text-decoration: none;
 	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
 }
+nav ul #publicar_nav a:hover
+{
+	box-shadow: 5px 5px 10px #CCC;
+}
+nav ul li a:hover
+{
+	background: #343B54;
+}
 nav ul li
 {
 	display: inline-block;
@@ -169,6 +191,11 @@ nav ul li a
 	color:white;
 	display: block;
 	padding: 0.5em;
+	-webkit-transition:.3s;
+}
+aside
+{
+	display: none;
 }
 #contenido
 {
@@ -248,4 +275,44 @@ nav ul li a
 #contenido .item .votacion .guardar_item
 {
 	float: right;
+}
+/*Declaracion de media queries*/
+/*@media print
+{
+	body
+	{
+		font-size: 50px;
+	}
+}*/
+
+@media screen and (min-width: 800px)
+{
+	#contenido
+	{
+		overflow: hidden;
+	}		
+	#contenido .item
+	{
+		width: 49%;
+		float: left;
+	}
+	#contenido .item:nth-child(odd)
+	{
+		margin-right: 2%;
+	}
+}
+
+@media screen and (min-width: 1000px)
+{
+	aside
+	{
+		display: block;
+		float: right;
+		margin: 1em;
+		width:20%;
+	}
+	aside video
+	{
+		width: 100%;
+	}
 }
