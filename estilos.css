@@ -206,7 +206,7 @@ aside
 	background: white;
 	border-bottom: 3px solid #22BCE0;
 	margin-bottom: 3em;
-	min-height: 128px;
+	/*min-height: 128px;*/
 	position:relative;
 }
 #contenido .item .autor_item
