@@ -10,7 +10,19 @@ $(function()
 	var $primerPost = $('.item').first(); //hace referencia al primer item, clona el primer item
 	//modificara una variable, la variable form
 	var $lista = $('#contenido');
+	var ss = sessionStorage;
+	var ls = localStorage;
+
+	if (ls.getItem('autosave'))
+	{
+		$titulo.val(ss.getItem('titulo'));
+		$url.val(ss.getItem('url'));
+	}
 	
+	var id = setInterval(function(){
+		ss.setItem('titulo', $titulo.val());
+		ss.setItem('url', $url.val())
+		} ,1000);
 	//Funcion que permite mostrar u ocultar el formulario
 	function mostrarOcultarFormulario()
 	{
@@ -57,6 +69,7 @@ $(function()
 		var titulo = $titulo.val();
 		var url = $url.val();
 
+		//uso de localstorage y sessionstorage
 		var ls = localStorage; //es un objeto javascript disponible en todos los contextos
 		var ss = sessionStorage;
 
@@ -70,9 +83,10 @@ $(function()
 		$titulo.val('');
 		$url.val('');
 	}
+
 	$('#publicar_nav a').click(mostrarOcultarFormulario);
 	//tenemos que escuchar el evento de submit, no se activa si el formualario no es valido
-	$('#formulario').on('submit', grabarInformacion /*agregarPost*/);
+	$('#formulario').on('submit', agregarPost);
 
 });
 
