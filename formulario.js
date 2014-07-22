@@ -50,9 +50,29 @@ $(function()
 		clone.fadeIn();
 
 	}
+	//añadimos la funcionalidad de localstorage y sessionstorage
+	function grabarInformacion(e){
+		e.preventDefault();
+		//coge la informacion de los inputs
+		var titulo = $titulo.val();
+		var url = $url.val();
+
+		var ls = localStorage; //es un objeto javascript disponible en todos los contextos
+		var ss = sessionStorage;
+
+		ls.setItem('titulo', titulo);
+		ls.setItem('url', url);
+
+		ss.setItem('titulo', titulo);
+		ss.setItem('url', url);
+
+		mostrarOcultarFormulario();
+		$titulo.val('');
+		$url.val('');
+	}
 	$('#publicar_nav a').click(mostrarOcultarFormulario);
 	//tenemos que escuchar el evento de submit, no se activa si el formualario no es valido
-	$('#formulario').on('submit', agregarPost);
+	$('#formulario').on('submit', grabarInformacion /*agregarPost*/);
 
 });
 
