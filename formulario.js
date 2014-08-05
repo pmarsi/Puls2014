@@ -1,7 +1,37 @@
-
-
 $(function()
 {
+	//vamos a crear una variable que nos permita realizar geolocalizacion
+	var geo = navigator.geolocation;
+
+	function geo_exito(position){
+		var lat = position.coords.latitude;
+		var lon = position.coords.longitude;
+
+		console.log(position.coords.accuracy);
+
+		//vamos a crear un tipo especial de objeto
+		var mapa = new Image();
+		mapa.src = "http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=16&size=220x220&sensor=false";
+
+		$('#geo').append(mapa);
+
+		obtenerGeoInformacion(lat, lon);
+	}
+
+	function geo_error(){
+		console.log("no se donde estas.");
+	}
+	geo.getCurrentPosition(geo_exito, geo_error, {
+		enableHighAccuracy: true,
+		timeout: 5000,
+		maximumAge: 0
+	});
+
+	
+
+	//pide la ubicacion actual
+	//watchcurrentposition chequea constantemente la posicion
+
 
 	//esta variable es igual al selector que se referencia mediante el id
 	var $form = $('#formulario');

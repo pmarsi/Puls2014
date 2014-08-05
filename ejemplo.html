@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>prueba eventos jquery</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+</head>
+<body>
+	<p>prueba eventos</p>
+</body>
+<script type="text/javascript">
+		var fo = 0;
+		$("p").focusout(function(){
+			fo++;
+		});
+
+		$('#target').keydown(function(data){
+			console.log(data.which);
+		});
+	</script>
+</html>
