@@ -10,8 +10,8 @@ $(function()
 		console.log(position.coords.accuracy);
 
 		//vamos a crear un tipo especial de objeto
-		var mapa = new Image();
-		mapa.src = "http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=16&size=220x220&sensor=false";
+		var mapa = new Image(); //es un objeto de tipo image
+		mapa.src = "http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=16&size=250x200&sensor=false&maptype=satellite";
 
 		$('#geo').append(mapa);
 
@@ -22,12 +22,11 @@ $(function()
 		console.log("no se donde estas.");
 	}
 	geo.getCurrentPosition(geo_exito, geo_error, {
-		enableHighAccuracy: true,
-		timeout: 5000,
-		maximumAge: 0
+		enableHighAccuracy: true, //si hay info mas certera usa esa info
+		timeout: 5000, //si pasados 5000 ms no has conseguido mejor informacion devuelve un error (geo_error)
+		maximumAge: 0 //si ya hay info actual mas vieja que x segundos utilizarla, en este caso dame siempre una nueva
 	});
 
-	
 
 	//pide la ubicacion actual
 	//watchcurrentposition chequea constantemente la posicion
