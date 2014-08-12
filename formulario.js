@@ -117,5 +117,8 @@ $(function()
 	//tenemos que escuchar el evento de submit, no se activa si el formualario no es valido
 	$('#formulario').on('submit', agregarPost);
 
+	loadLogos();
+	loadUser();
+
 });
 

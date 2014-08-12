@@ -70,3 +70,21 @@ function climacallback(datos){
 	$("#clima").html('<strong>'+temp+'</strong> '+unit+'º');
 	$("#clima").prepend(img);
 }
+
+//esta funciion llama a footer, recibe html, y le indicamos que a footer le añada el html que le pasamos por parametro
+function loadLogos(){
+	$.get('ajax_html.html', function(html){
+		$('footer').append(html);
+
+	});
+}
+
+function loadUser(){
+	$.get('ajax_json.json', function(datos){
+		var avatar = new Image();
+		avatar.src = datos.avatar;
+		avatar.title = datos.nombre+" "+datos.apellido;
+		$("#avatar").append(avatar);
+
+	});
+}
